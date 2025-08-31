@@ -1,0 +1,19 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    
+    int arr[5]={1,2,3,4,5};
+    int last=arr[4];
+    int seclast=arr[3];
+ for(int i=2;i>=0;i--){
+        arr[i+2]=arr[i];
+    }
+  arr[1]=last;
+    arr[0]=seclast;
+    for(int i=0;i<5;i++){
+        cout<<arr[i];
+    }
+    
+    return 0;
+}
