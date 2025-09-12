@@ -1,0 +1,21 @@
+class Solution {
+  public:
+    vector<int> addOne(vector<int>& arr) {
+        int n = arr.size();
+        int carry = 1;  // we are adding 1
+
+        // Step 1: Go from last element to first
+        for (int i = n - 1; i >= 0; i--) {
+            int sum = arr[i] + carry;  // add carry to current element
+            arr[i] = sum % 10;         // keep the last digit
+            carry = sum / 10;          // update carry (1 if sum >= 10, else 0)
+        }
+
+        // Step 2: If carry is still left (e.g. 999 -> carry=1)
+        if (carry > 0) {
+            arr.insert(arr.begin(), carry);  // add carry at the front
+        }
+
+        return arr;  // return updated array
+    }
+};
